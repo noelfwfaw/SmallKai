@@ -1,0 +1,2 @@
+# SmallKai
+Lua for AzurLane
