@@ -51,7 +51,7 @@ function HS666()
 	gg.clearResults()
 	gg.setRanges(32)
 	-- 第一次搜索
-	gg.searchNumber("0.0001;"..n..";0;35::30", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
+	gg.searchNumber("0.0001;"..n..";0;35::30", gg.TYPE_AUTO, false, gg.SIGN_EQUAL, 0, -1, 0)
 	gg.refineNumber(n, gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 0)
 	gg.getResults(100)
 	gg.editAll("1", gg.TYPE_DOUBLE)
