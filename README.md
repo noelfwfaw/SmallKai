@@ -6,3 +6,6 @@ Lua for AzurLane
 
 ## 注意事项
 别碰mate，共斗，ex，演习！！！
+
+## 小开收益
+![小开收益V3.jpg](./小开收益V3.jpg)
