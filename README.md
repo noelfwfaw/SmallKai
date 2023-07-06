@@ -8,4 +8,10 @@ Lua for AzurLane
 别碰mate，共斗，ex，演习！！！
 
 ## 小开收益
-![小开收益V3.jpg](./小开收益V3.jpg)
+![SmallKaiIncomeV3.jpg](./Images/SmallKaiIncomeV3.jpg)
+
+![EventIncome.png](./Images/EventIncome.png)
+
+![EquipmentDrawingIncomePerTenThousandOil.png](./Images/EquipmentDrawingIncomePerTenThousandOil.png)
+
+![PtIncomePerTenThousandOil.png](./Images/PtIncomePerTenThousandOil.png)
