@@ -1,10 +1,9 @@
-import csv
-import json
-
 from JsonToCsv import JsonToCsv
 
 RAWDATA_FILE = "../RawData/ship_data_statistics.json"
 DATA_FILE = "../Data/ShipData.csv"
+
+BLACK_ROOT_KEY = []
 
 DATA_SPACE_TO_WRITE = {
     "名称": "name",
@@ -15,4 +14,4 @@ DATA_SPACE_TO_WRITE = {
 
 
 if __name__ == "__main__":
-    JsonToCsv().LoadFile(RAWDATA_FILE).SetDataSpace(DATA_SPACE_TO_WRITE).WriteToFile(DATA_FILE)
+    JsonToCsv(RAWDATA_FILE, DATA_SPACE_TO_WRITE, BLACK_ROOT_KEY).WriteToFile(DATA_FILE)
