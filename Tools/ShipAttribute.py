@@ -8,6 +8,8 @@ BLACK_ROOT_KEY = ["all"]
 DATA_SPACE_TO_WRITE = {
     "名称": "name",
     "星级": "star",
+    "Id": "id",
+    "类型": "type",
     "耐久": "attrs.0",
     "炮击": "attrs.1",
     "雷击": "attrs.2",
