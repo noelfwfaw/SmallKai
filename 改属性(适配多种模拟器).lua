@@ -35,8 +35,17 @@ function ChangeShipAttribute()
 		end
 
 		for j = 1, #SearchResult do
-			local MemoryFrom = SearchResult[j].address - 0x800
-			local MemoryTo = SearchResult[j].address - 0x650
+			local MemoryFrom = SearchResult[j].address - 0x1850
+			local MemoryTo = SearchResult[j].address
+			--[[
+			Here, I have tried my best to find out the memory range of ship's attribute which is relative to ship's id.
+			And I have tested this range on local android simulator and on cloud phone.
+			The upper bound is 0x1850 which will cause game crash and fail to enter a battle in opsi and main if you set
+			upper bound greater than this, and in most cases, ship's attribute is modified correctly.
+			But in some cases, the ship's data such as its attribute can't be searched.
+			I truly don't know why.(Maybe dynamic loading causes this?)
+			Maybe I am a noob. :)
+			--]]
 			for k = 1, #ShipAttributeList do
 				-- fuck gg
 				-- fuck lua
