@@ -15,4 +15,6 @@ Lua for AzurLane
 ## 倍速收益
 ![SpeedupEffect.png](./Images/SpeedupEffect.png)
 
+![SpeedupIncome2.png](./Images/SpeedupIncome2.png)
+
 ![SpeedupIncome.png](./Images/SpeedupIncome.png)
