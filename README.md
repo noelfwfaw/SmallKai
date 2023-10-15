@@ -11,7 +11,3 @@ Lua for AzurLane
 ![SmallKaiIncomeV3.jpg](./Images/SmallKaiIncomeV3.jpg)
 
 ![EventIncome.png](./Images/EventIncome.png)
-
-![EquipmentDrawingIncomePerTenThousandOil.png](./Images/EquipmentDrawingIncomePerTenThousandOil.png)
-
-![PtIncomePerTenThousandOil.png](./Images/PtIncomePerTenThousandOil.png)
