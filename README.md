@@ -11,3 +11,8 @@ Lua for AzurLane
 ![SmallKaiIncomeV3.jpg](./Images/SmallKaiIncomeV3.jpg)
 
 ![EventIncome.png](./Images/EventIncome.png)
+
+## 倍速收益
+![SpeedupEffect.png](./Images/SpeedupEffect.png)
+
+![SpeedupIncome.png](./Images/SpeedupIncome.png)
