@@ -7,14 +7,6 @@ Lua for AzurLane
 ## 注意事项
 别碰mate，共斗，ex，演习！！！
 
-## 小开收益
-![SmallKaiIncomeV3.jpg](./Images/SmallKaiIncomeV3.jpg)
-
-![EventIncome.png](./Images/EventIncome.png)
-
-## 倍速收益
-![SpeedupEffect.png](./Images/SpeedupEffect.png)
-
-![SpeedupIncome2.png](./Images/SpeedupIncome2.png)
-
-![SpeedupIncome.png](./Images/SpeedupIncome.png)
+## 收益
+* [小开收益](./Doc/SmallkaiIncome.md)
+* [倍速收益](./Doc/SpeedupIncome.md)
