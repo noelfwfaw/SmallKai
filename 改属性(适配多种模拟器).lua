@@ -11,6 +11,14 @@ function ChangeShipAttribute()
 			 		    	,{"text"})
 
 	local TargetList = string.split(tostring(Result[1]), "|")
+	local OriginalRange = gg.getRanges()
+	gg.setRanges(gg.REGION_JAVA_HEAP
+			 | gg.REGION_C_DATA
+			 | gg.REGION_ANONYMOUS
+			 | gg.REGION_JAVA
+			 | gg.REGION_STACK
+			 | gg.REGION_ASHMEM
+			 | gg.REGION_OTHER)
     for i = 1, #TargetList do
         local SplitedTarget = string.split(TargetList[i], ":")
         local ShipData = SplitedTarget[1]  -- {Id};{Star};{Type}
@@ -69,6 +77,7 @@ function ChangeShipAttribute()
 			end
 		end
     end
+	gg.setRanges(OriginalRange)
 	Exit("修改成功！")
 end
 
