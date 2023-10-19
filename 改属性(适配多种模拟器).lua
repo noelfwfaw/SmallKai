@@ -39,20 +39,7 @@ function ChangeShipAttribute()
 		for j = 1, #SearchResult do
 			local MemoryFrom = SearchResult[j].address - 0x1850
 			local MemoryTo = SearchResult[j].address
-			--[[
-			Here, I have tried my best to find out the memory range of ship's attribute which is relative to ship's id.
-			And I have tested this range on local android simulator and on cloud phone.
-			The upper bound is 0x1850 which will cause game crash and fail to enter a battle in opsi and main if you set
-			upper bound greater than this, and in most cases, ship's attribute is modified correctly.
-			But in some cases, the ship's data such as its attribute can't be searched.
-			I truly don't know why.(Maybe dynamic loading causes this?)
-			Maybe I am a noob. :)
-			--]]
 			for k = 1, #ShipAttributeList do
-				-- fuck gg
-				-- fuck lua
-				-- fuck dynamic type
-				-- fuck everything
 				local SplitedAttribute = string.split(tostring(ShipAttributeList[k]), ">")
 				local AttributeToSearchList = SplitedAttribute[1]
 				local TargetAttributeList = SplitedAttribute[2]
@@ -68,6 +55,35 @@ function ChangeShipAttribute()
 					gg.editAll(TargetAttributeList, gg.TYPE_DOUBLE)
 				end
 				gg.clearResults()
+			end
+			MemoryFrom = SearchResult[j].address - 0x300
+			MemoryTo = SearchResult[j].address
+			gg.searchNumber("A0000000h~B0000000h", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+			local AddressResult = gg.getResults(1024)
+			if next(AddressResult) == nil then
+				gg.searchNumber("A0000000h~B0000000h", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+				AddressResult = gg.getResults(1024)
+			end
+			for l = 1, #AddressResult do
+				MemoryFrom = AddressResult[l].value
+				MemoryTo = AddressResult[l].value + 0x100
+				for m = 1, #ShipAttributeList do
+					local SplitedAttribute = string.split(tostring(ShipAttributeList[m]), ">")
+					local AttributeToSearchList = SplitedAttribute[1]
+					local TargetAttributeList = SplitedAttribute[2]
+					gg.clearResults()
+					gg.searchNumber(AttributeToSearchList, gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+					local AttributeResult = gg.getResults(1024)
+					if next(AttributeResult) == nil then
+						gg.clearResults()
+						gg.searchNumber(AttributeToSearchList, gg.TYPE_DWORD, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+						gg.getResults(1024)
+						gg.editAll(TargetAttributeList, gg.TYPE_DWORD)
+					else
+						gg.editAll(TargetAttributeList, gg.TYPE_DOUBLE)
+					end
+					gg.clearResults()
+				end
 			end
 		end
     end
