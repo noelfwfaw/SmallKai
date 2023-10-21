@@ -57,11 +57,13 @@ function ChangeShipAttribute()
 				gg.clearResults()
 			end
 			MemoryFrom = SearchResult[j].address - 0x300
-			MemoryTo = SearchResult[j].address
-			gg.searchNumber("A0000000h~B0000000h", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+			MemoryTo = SearchResult[j].address + 0x300
+			local Base1 = SearchResult[j].address & 0xF0000000
+			local Base2 = SearchResult[j].address | 0xFFFFFFF
+			gg.searchNumber(Base1.."~"..Base2.."", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
 			local AddressResult = gg.getResults(1024)
 			if next(AddressResult) == nil then
-				gg.searchNumber("A0000000h~B0000000h", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
+				gg.searchNumber(Base1.."~"..Base2.."", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, MemoryFrom, MemoryTo)
 				AddressResult = gg.getResults(1024)
 			end
 			for l = 1, #AddressResult do
