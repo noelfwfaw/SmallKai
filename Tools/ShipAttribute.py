@@ -7,6 +7,7 @@ BLACK_ROOT_KEY = ["all"]
 
 DATA_SPACE_TO_WRITE = {
     "名称": "name",
+    "英文名称": "english_name",
     "星级": "star",
     "Id": "id",
     "类型": "type",
