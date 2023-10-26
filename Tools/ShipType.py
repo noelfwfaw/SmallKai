@@ -11,5 +11,10 @@ DATA_SPACE_TO_WRITE = {
     "TeamId": "team_type"
 }
 
-if __name__ == "__main__":
+
+def main():
     JsonToCsv(RAWDATA_FILE, DATA_SPACE_TO_WRITE, BLACK_ROOT_KEY).WriteToFile(DATA_FILE)
+
+
+if __name__ == "__main__":
+    main()
