@@ -10,6 +10,10 @@ import shutil
 AZUR_LANE_DATE_REPOSITORY_URL = "https://github.com/AzurLaneTools/AzurLaneData"
 AZUR_LANE_DATE_ROOT_PATH = "../AzurLaneData"
 RAWDATA_PATH = "../RawData"
+REPOSITORY_ROOT_PATH = "../"
+COMMIT_MESSAGE = "Upd(auto): ship data"
+REPOSITORY = git.Repo(REPOSITORY_ROOT_PATH)
+
 
 @dataclass
 class FileRedirect:
@@ -22,6 +26,14 @@ REDIRECT_LIST = [
     FileRedirect("ship_data_by_type.json", "../AzurLaneData/CN/ShareCfg", RAWDATA_PATH),
     FileRedirect("ship_data_statistics.json", "../AzurLaneData/CN/sharecfgdata", RAWDATA_PATH),
     FileRedirect("ship_data_template.json", "../AzurLaneData/CN/sharecfgdata", RAWDATA_PATH)
+]
+
+COMMIT_FILE = [
+    "../RawData/ship_data_by_type.json",
+    "../RawData/ship_data_statistics.json",
+    "../RawData/ship_data_template.json",
+    "../Data/ShipAttribute.csv",
+    "../Data/ShipType.csv"
 ]
 
 
@@ -39,11 +51,23 @@ def CheckRepository():
         remote.fetch()
 
 
+def Commit():
+    REPOSITORY.index.add(items=[os.path.abspath(i) for i in COMMIT_FILE])
+    REPOSITORY.index.commit(COMMIT_MESSAGE)
+
+
+def Push():
+    remote = REPOSITORY.remote()
+    remote.push()
+
+
 def main():
     CheckRepository()
     RedirectFile()
     ShipAttribute.main()
     ShipType.main()
+    Commit()
+    Push()
 
 
 if __name__ == "__main__":
