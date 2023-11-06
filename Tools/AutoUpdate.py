@@ -48,7 +48,7 @@ def CheckRepository():
     else:
         repo = git.Repo(AZUR_LANE_DATE_ROOT_PATH)
         remote = repo.remote()
-        remote.fetch()
+        remote.pull()
 
 
 def Commit():
