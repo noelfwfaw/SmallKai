@@ -51,8 +51,18 @@ def CheckRepository():
         remote.pull()
 
 
+def GetChangedFiles():
+    HeadCommit = REPOSITORY.head.commit
+    LastCommitSha = HeadCommit.hexsha
+
+    Changes = REPOSITORY.git.diff("--name-only", LastCommitSha)
+    ChangedFiles = Changes.split('\n')
+
+    return [os.path.abspath(REPOSITORY_ROOT_PATH + File) for File in ChangedFiles]
+
+
 def Commit():
-    REPOSITORY.index.add(items=[os.path.abspath(i) for i in COMMIT_FILE])
+    REPOSITORY.index.add(items=GetChangedFiles())
     REPOSITORY.index.commit(COMMIT_MESSAGE)
 
 
