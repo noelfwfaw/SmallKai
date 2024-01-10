@@ -62,7 +62,8 @@ def GetChangedFiles():
 
 
 def Commit():
-    REPOSITORY.index.add(items=GetChangedFiles())
+    for file in GetChangedFiles():
+        REPOSITORY.git.execute(["git", "add", file])
     REPOSITORY.index.commit(COMMIT_MESSAGE)
 
 
