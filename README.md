@@ -1,5 +1,7 @@
-# SmallKai
+# SmallKai no kai
 Lua for AzurLane
+For personal use only. 
+Not responsible for any consequences resulting from the use of this script.
 
 ## 原则
 开别怂，怂别开，封别叫！（小开不算开，开了就是开了？）
